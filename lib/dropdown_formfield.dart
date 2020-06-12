@@ -11,6 +11,7 @@ class DropDownFormField extends FormField<dynamic> {
   final List dataSource;
   final String textField;
   final String valueField;
+  final String iconField;
   final Function onChanged;
   final InputDecoration decoration;
   final TextStyle hintStyle;
@@ -30,6 +31,7 @@ class DropDownFormField extends FormField<dynamic> {
       this.dataSource,
       this.textField,
       this.valueField,
+      this.iconField,
       this.onChanged,
       this.decoration})
       : super(
@@ -64,7 +66,15 @@ class DropDownFormField extends FormField<dynamic> {
                         items: dataSource.map((item) {
                           return DropdownMenuItem<dynamic>(
                             value: item[valueField],
-                            child: Text(item[textField]),
+                            child: (iconField != null && iconField.isNotEmpty
+                                ? Row(
+                                    children: <Widget>[
+                                      item[iconField],
+                                      const SizedBox(width: 5),
+                                      Text(item[textField])
+                                    ],
+                                  )
+                                : Text(item[textField])),
                           );
                         }).toList(),
                       ),
