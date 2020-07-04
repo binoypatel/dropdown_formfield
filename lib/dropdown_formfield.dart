@@ -6,6 +6,7 @@ class DropDownFormField extends FormField<dynamic> {
   final String titleText;
   final String hintText;
   final bool required;
+  final bool enabled;
   final String errorText;
   final dynamic value;
   final List dataSource;
@@ -25,6 +26,7 @@ class DropDownFormField extends FormField<dynamic> {
       this.hintText = 'Select one option',
       this.hintStyle,
       this.required = false,
+      this.enabled = true,
       this.errorText = 'Please select one option',
       this.errorStyle,
       this.value,
@@ -36,6 +38,7 @@ class DropDownFormField extends FormField<dynamic> {
       this.decoration})
       : super(
           onSaved: onSaved,
+          enabled: enabled,
           validator: validator,
           autovalidate: autovalidate,
           initialValue: value == '' ? null : value,
