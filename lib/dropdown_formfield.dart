@@ -10,18 +10,18 @@ class DropDownFormField extends FormField<dynamic> {
   final bool enabled;
   final String errorText;
   final dynamic value;
-  final List dataSource;
-  final String textField;
-  final String valueField;
-  final String iconField;
-  final Function onChanged;
-  final InputDecoration decoration;
-  final TextStyle hintStyle;
-  final TextStyle errorStyle;
+  final List? dataSource;
+  final String? textField;
+  final String? valueField;
+  final String? iconField;
+  final Function? onChanged;
+  final InputDecoration? decoration;
+  final TextStyle? hintStyle;
+  final TextStyle? errorStyle;
 
   DropDownFormField(
-      {FormFieldSetter<dynamic> onSaved,
-      FormFieldValidator<dynamic> validator,
+      {FormFieldSetter<dynamic>? onSaved,
+      FormFieldValidator<dynamic>? validator,
       AutovalidateMode autovalidateMode = AutovalidateMode.disabled,
       this.titleText = 'Title',
       this.hintText = 'Select one option',
@@ -85,7 +85,7 @@ class DropDownFormField extends FormField<dynamic> {
                   ),
                   SizedBox(height: state.hasError ? 5.0 : 0.0),
                   Text(
-                    state.hasError ? state.errorText : '',
+                    state.hasError ? state.errorText! : '',
                     style: errorStyle ??
                         TextStyle(
                             color: Colors.redAccent.shade700,
