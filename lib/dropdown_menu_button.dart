@@ -35,7 +35,7 @@ class DropdownMenuButton extends StatelessWidget {
       value: value == '' ? null : value,
       iconEnabledColor: !enabled!
           ? Colors.grey.shade500
-          : Theme.of(context).textTheme.bodyText1!.color,
+          : Theme.of(context).textTheme.bodyLarge!.color,
       onChanged: (dynamic newValue) {
         state!.didChange(newValue);
         onChanged!(newValue);
